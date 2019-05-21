@@ -15,7 +15,7 @@ public class LaserGame implements LaserGameInterface {
 		return true;
 	}
 	
-	public boolean Pshield() {//does a shield animation or message and returns positive if the player shileded this turn
+	public boolean Pblock() {//does a shield animation or message and returns positive if the player shileded this turn
 		return true;
 	}
 	
@@ -31,7 +31,7 @@ public class LaserGame implements LaserGameInterface {
 		return true;
 	}
 	
-	public boolean Cshield() {//does a shield animation or message and returns positive if the computer shileded this turn
+	public boolean Cblock() {//does a shield animation or message and returns positive if the computer shileded this turn
 		return true;
 	}
 	
@@ -48,8 +48,29 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void menu() {//outputs nice prompts to let the player choose what they want to do each turn and guides the turns consecutively, calling all the correct methods in order
-		 JOptionPane.showMessageDialog( null, "Welcome to Laser Battle!!!" );
-		 JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or shield every turn... choose wisely!" );
+		JOptionPane.showMessageDialog( null, "Welcome to Laser Battle!!!" );
+		JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or block every turn... choose wisely!" );
+		Scanner cin = new Scanner(System.in);
+		int check = 0;
+		char choice = ' ';
+		while (Palive()==true||Calive()==true) {
+			do {
+			System.out.println("Enter 's' for shoot, 'r' for reload, and 'b' for block");
+			choice = cin.next().charAt(0);
+			if (choice == 's') {
+				Pshoot();
+			}
+			if (choice == 'r') {
+				Preload();
+			}
+			if (choice == 'b') {
+				Pblock();
+			}
+				
+			
+			} while (choice == 's'||choice == 'r'||choice == 'b');
+			
+		}
 	}
 	
 	public void win() {//win screen if the computer dies
