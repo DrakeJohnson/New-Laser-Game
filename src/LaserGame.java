@@ -21,6 +21,7 @@ public class LaserGame implements LaserGameInterface {
 		Pammo--;
 		
 		//Ascii for the pistol
+		/*
 		System.out.println("_,`__________________________________________,,,`");
 		System.out.println("`      /  /  /  /      _  ___ ___ ___ ___ ___  ");
 		System.out.println(" _ __ /  /  /  /  ____|___ ___ ___ ___ ___ __");
@@ -32,6 +33,19 @@ public class LaserGame implements LaserGameInterface {
 		System.out.println("/  /  / -- /");
 		System.out.println("|  -    -- |");
 		System.out.println("------------");
+		*/
+		JOptionPane.showMessageDialog( null, "_,`__________________________________________,,,` \n"
+				+ "`      /  /  /  /      _  ___ ___ ___ ___ ___   \n" 
+				+ " _ __ /  /  /  /  ____|___ ___ ___ ___ ___ __ \n"
+				+ "/ --  --------   |                                \n"
+				+ "| -- -------    |                                 \n"
+				+ "| ------------|                                   \n"
+				+ "  /  /  / -- / \n"
+				+ " /  /  / -- / \n"
+				+ "/  /  / -- / \n"
+				+ "|  -    -- | \n"
+				+ "----------- \n");
+		
 		
 		pshot = true;
 	}
