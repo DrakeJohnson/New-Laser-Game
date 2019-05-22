@@ -22,8 +22,6 @@ public interface LaserGameInterface {
 	public void Creload();//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
 	public void Cblock();//does a shield animation or message and returns positive if the computer shileded this turn
 	public boolean Calive();//does all the logic to figure out if the player or computer dies this turn
-	public int Pammo();//keeps a count of the ammo the player
-	public int Cammo();//keeps a count of the computer ammo
 	public void menu();//outputs nice prompts to let the player choose what they want to do each turn and guides the turns consecutively, calling all the correct methods in order
 	public void win();//win screen if the computer dies
 	public void lose();//lose screen if the player dies
