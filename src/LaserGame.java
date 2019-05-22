@@ -2,43 +2,50 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 public class LaserGame implements LaserGameInterface {
+	boolean pshot, preloaded, pblocked, cshot, creloaded, cblocked;
 	
 	public LaserGame() {//constructor
-		
+		pshot = false;
+		preloaded = false;
+		pblocked = false;
+		cshot = false;
+		creloaded = false;
+		cblocked = false;
 	}
 	
-	public boolean Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-		System.out.println("Shoot");
+	public void Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
 		
 		System.out.println("SHOOT");
-		
-		return true;
+		pshot = true;
 	}
 	
-	public boolean Preload() {//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
+	public void Preload() {//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
 		System.out.println("Reload");
-		return true;
+		preloaded = true;
 	}
 	
-	public boolean Pblock() {//does a shield animation or message and returns positive if the player shileded this turn
+	public void Pblock() {//does a shield animation or message and returns positive if the player shileded this turn
 		System.out.println("Block");
-		return true;
+		pblocked = true;
 	}
 	
 	public boolean Palive() {//does all the logic to figure out if the player dies this turn
 		return true;
 	}
 	
-	public boolean Cshoot() {//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-		return true;
+	public void Cshoot() {//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
+		System.out.println("Computer shot");
+		cshot = true;
 	}
 	
-	public boolean Creload() {//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
-		return true;
+	public void Creload() {//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
+		System.out.println("Computer reloaded");
+		creloaded = true;
 	}
 	
-	public boolean Cblock() {//does a shield animation or message and returns positive if the computer shileded this turn
-		return true;
+	public void Cblock() {//does a shield animation or message and returns positive if the computer shileded this turn
+		System.out.println("Computer blocked");
+		cblocked = true;
 	}
 	
 	public boolean Calive() {//does all the logic to figure out if the player or computer dies this turn
@@ -59,25 +66,33 @@ public class LaserGame implements LaserGameInterface {
 		Scanner cin = new Scanner(System.in);
 		char choice = ' ';//player input to choose what action to do
 		while (Palive()==true||Calive()==true) {//main menu of the game, continues until somebody dies
-			do {
+			
+			do {//makes sure they choose an actual option
 			System.out.println("Enter 's' for shoot, 'r' for reload, and 'b' for block");
 			choice = cin.next().charAt(0);
 			if (choice == 's') {
+				if (Pammo()==0) {
+					System.out.println("You don't have any ammo try again");
+				}
+				else if (Pammo()>0) {
 				Pshoot();
+				break;
+				}
 			}
 			else if (choice == 'r') {
 				Preload();
+				break;
 			}
 			else if (choice == 'b') {
 				Pblock();
+				break;
 			}
 			else {
 				System.out.println("Try again");
 			}
-				
-			
 			} while (choice != 's'||choice != 'r'||choice != 'b');
-		}
+			bot();
+		}//ends loop when someone dies
 		if (Palive()==false&&Calive()==false) {//checks after someone dies if there was a draw
 			draw();
 		}
@@ -98,9 +113,10 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void bot() {//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
+		//System.out.println("Bot test");
 		int choice;
 		Random rand = new Random();
-		choice = rand.nextInt(2);
+		choice = rand.nextInt(3);
 		switch (choice) {
 		case 0://shoots
 			if (Cammo()==0) {

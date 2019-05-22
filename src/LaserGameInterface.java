@@ -14,13 +14,13 @@ public interface LaserGameInterface {
 	 difficulty choosing
 	 "attack" sound
 	 */
-	public boolean Pshoot();//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-	public boolean Preload();//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
-	public boolean Pblock();//does a shield animation or message and returns positive if the player shileded this turn
+	public void Pshoot();//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
+	public void Preload();//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
+	public void Pblock();//does a shield animation or message and returns positive if the player shileded this turn
 	public boolean Palive();//does all the logic to figure out if the player dies this turn
-	public boolean Cshoot();//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-	public boolean Creload();//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
-	public boolean Cblock();//does a shield animation or message and returns positive if the computer shileded this turn
+	public void Cshoot();//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
+	public void Creload();//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
+	public void Cblock();//does a shield animation or message and returns positive if the computer shileded this turn
 	public boolean Calive();//does all the logic to figure out if the player or computer dies this turn
 	public int Pammo();//keeps a count of the ammo the player
 	public int Cammo();//keeps a count of the computer ammo
