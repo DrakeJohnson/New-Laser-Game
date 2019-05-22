@@ -9,6 +9,9 @@ public class LaserGame implements LaserGameInterface {
 	
 	public boolean Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
 		System.out.println("Shoot");
+		
+		System.out.println("SHOOT");
+		
 		return true;
 	}
 	
