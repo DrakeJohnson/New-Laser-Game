@@ -8,14 +8,17 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public boolean Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
+		System.out.println("Shoot");
 		return true;
 	}
 	
 	public boolean Preload() {//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
+		System.out.println("Reload");
 		return true;
 	}
 	
 	public boolean Pblock() {//does a shield animation or message and returns positive if the player shileded this turn
+		System.out.println("Block");
 		return true;
 	}
 	
@@ -48,28 +51,38 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void menu() {//outputs nice prompts to let the player choose what they want to do each turn and guides the turns consecutively, calling all the correct methods in order
-		JOptionPane.showMessageDialog( null, "Welcome to Laser Battle!!!" );
-		JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or block every turn... choose wisely!" );
+		JOptionPane.showMessageDialog( null, "Welcome to Laser Battle!!!" );//a message box with this text appears welcoming the player
+		JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or block every turn... choose wisely!" );//another message box to explain how the game works
 		Scanner cin = new Scanner(System.in);
-		int check = 0;
-		char choice = ' ';
-		while (Palive()==true||Calive()==true) {
+		char choice = ' ';//player input to choose what action to do
+		while (Palive()==true||Calive()==true) {//main menu of the game, continues until somebody dies
 			do {
 			System.out.println("Enter 's' for shoot, 'r' for reload, and 'b' for block");
 			choice = cin.next().charAt(0);
 			if (choice == 's') {
 				Pshoot();
 			}
-			if (choice == 'r') {
+			else if (choice == 'r') {
 				Preload();
 			}
-			if (choice == 'b') {
+			else if (choice == 'b') {
 				Pblock();
+			}
+			else {
+				System.out.println("Try again");
 			}
 				
 			
-			} while (choice == 's'||choice == 'r'||choice == 'b');
-			
+			} while (choice != 's'||choice != 'r'||choice != 'b');
+		}
+		if (Palive()==false&&Calive()==false) {//checks after someone dies if there was a draw
+			draw();
+		}
+		else if (Palive()==false) {//checks for loss
+			lose();
+		}
+		else if (Calive()==false) {//checks for win
+			win();
 		}
 	}
 	
@@ -88,6 +101,10 @@ public class LaserGame implements LaserGameInterface {
 	
 	public void sound() {//plays a shooting sound that will be called when the player or computer shoots
 	
+	}
+
+	public void draw() {
+		
 	}
 	
 
