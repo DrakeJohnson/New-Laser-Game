@@ -14,6 +14,7 @@ public interface LaserGameInterface {
 	 difficulty choosing
 	 "attack" sound
 	 */
+	public void turnReset();
 	public void Pshoot();//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
 	public void Preload();//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
 	public void Pblock();//does a shield animation or message and returns positive if the player shileded this turn

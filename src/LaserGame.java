@@ -33,8 +33,11 @@ public class LaserGame implements LaserGameInterface {
 		pblocked = true;
 	}
 	
-	public boolean Palive() {//does all the logic to figure out if the player dies this turn
-		return true;
+	public boolean Calive() {//does all the logic to figure out if the player dies this turn
+		if (pshot == true && cblocked == false)
+			return false;
+		else
+			return true;
 	}
 	
 	public void Cshoot() {//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
@@ -54,8 +57,11 @@ public class LaserGame implements LaserGameInterface {
 		cblocked = true;
 	}
 	
-	public boolean Calive() {//does all the logic to figure out if the player or computer dies this turn
-		return true;
+	public boolean Palive() {//does all the logic to figure out if the player or computer dies this turn
+		if (cshot == true && pblocked == false)
+			return false;
+		else
+			return true;
 	}
 
 	public void menu() {//outputs nice prompts to let the player choose what they want to do each turn and guides the turns consecutively, calling all the correct methods in order
@@ -63,8 +69,8 @@ public class LaserGame implements LaserGameInterface {
 		JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or block every turn... choose wisely!" );//another message box to explain how the game works
 		Scanner cin = new Scanner(System.in);
 		char choice = ' ';//player input to choose what action to do
-		while (Palive()==true||Calive()==true) {//main menu of the game, continues until somebody dies
-			
+		while (Palive()==true&&Calive()==true) {//main menu of the game, continues until somebody dies
+			turnReset();
 			do {//makes sure they choose an actual option
 			System.out.println("Enter 's' for shoot, 'r' for reload, and 'b' for block");
 			choice = cin.next().charAt(0);
@@ -90,6 +96,7 @@ public class LaserGame implements LaserGameInterface {
 			}
 			} while (choice != 's'||choice != 'r'||choice != 'b');
 			bot();
+			
 		}//ends loop when someone dies
 		if (Palive()==false&&Calive()==false) {//checks after someone dies if there was a draw
 			draw();
@@ -103,11 +110,11 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void win() {//win screen if the computer dies
-	
+		JOptionPane.showMessageDialog( null, "You Win!!!!!!!" );
 	}
 	
 	public void lose() {//lose screen if the player dies
-	
+		JOptionPane.showMessageDialog( null, "You Lose :(" );
 	}
 	
 	public void bot() {//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
@@ -138,7 +145,17 @@ public class LaserGame implements LaserGameInterface {
 	}
 
 	public void draw() {
-		
+		JOptionPane.showMessageDialog( null, "Draw :/" );
+	}
+
+	
+	public void turnReset() {
+		pshot = false;
+		preloaded = false;
+		pblocked = false;
+		cshot = false;
+		creloaded = false;
+		cblocked = false;
 	}
 	
 
