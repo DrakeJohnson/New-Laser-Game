@@ -28,7 +28,7 @@ public interface LaserGameInterface {
 	public void win();//win screen if the computer dies
 	public void lose();//lose screen if the player dies
 	public void draw();//draw screen if both die
-	public int bot();//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
+	public void bot();//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
 	public void sound();//plays a shooting sound that will be called when the player or computer shoots
 
 }
