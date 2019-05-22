@@ -94,10 +94,27 @@ public class LaserGame implements LaserGameInterface {
 	
 	}
 	
-	public int bot() {//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
-		return 0;
-	
-	}
+	public void bot() {//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
+		int choice;
+		Random rand = new Random();
+		choice = rand.nextInt(2);
+		switch (choice) {
+		case 0://shoots
+			if (Cammo()==0) {
+				Creload();
+			}
+			else if (Cammo()>0) {
+				Cshoot();
+			}
+			break;
+		case 1://reloads
+			Creload();
+			break;
+		case 2://blocks
+			Cblock();
+			break;
+		}
+		}
 	
 	public void sound() {//plays a shooting sound that will be called when the player or computer shoots
 	
