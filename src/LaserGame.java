@@ -17,13 +17,30 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-		System.out.println("SHOOT");
+		System.out.println("Shoot");
 		Pammo--;
+		
+		//Ascii for the pistol
+		System.out.println("_,`__________________________________________,,,`");
+		System.out.println("`      /  /  /  /      _  ___ ___ ___ ___ ___  ");
+		System.out.println(" _ __ /  /  /  /  ____|___ ___ ___ ___ ___ __");
+		System.out.println("/ --  --------   |                               ");
+		System.out.println("| -- -------    |                                ");
+		System.out.println("| ------------|                                  ");
+		System.out.println("  /  /  / -- /");
+		System.out.println(" /  /  / -- /");
+		System.out.println("/  /  / -- /");
+		System.out.println("|  -    -- |");
+		System.out.println("------------");
+		
 		pshot = true;
 	}
 	
 	public void Preload() {//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
 		System.out.println("Reload");
+		
+		System.out.println("");
+		
 		Pammo++;
 		preloaded = true;
 	}
