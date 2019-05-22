@@ -19,6 +19,20 @@ public class LaserGame implements LaserGameInterface {
 	public void Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
 		System.out.println("SHOOT");
 		Pammo--;
+		
+		//Ascii for the pistol
+		System.out.println("_,`__________________________________________,,,`");
+		System.out.println("`      /  /  /  /      _  ___ ___ ___ ___ ___  ");
+		System.out.println(" _ __ /  /  /  /  ____|___ ___ ___ ___ ___ __");
+		System.out.println("/ --  --------   |                               ");
+		System.out.println("| -- -------    |                                ");
+		System.out.println("| ------------|                                  ");
+		System.out.println("  /  /  / -- /");
+		System.out.println(" /  /  / -- /");
+		System.out.println("/  /  / -- /");
+		System.out.println("|  -    -- |");
+		System.out.println("------------");
+		
 		pshot = true;
 	}
 	
