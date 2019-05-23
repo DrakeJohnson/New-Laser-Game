@@ -1,5 +1,5 @@
 
-
+//test for max's stupid computer
 public interface LaserGameInterface {
 	/*
 	 Shoot
