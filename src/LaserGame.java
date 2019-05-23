@@ -14,7 +14,7 @@ public class LaserGame implements LaserGameInterface {
 		cblocked = false;
 		Pammo = 0;
 		Cammo = 0;
-	} // 
+	} //   
 	
 	public void Pshoot() {//does a shoot animation or message and returns positive if the player shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
 		System.out.println("Shoot");
