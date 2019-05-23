@@ -20,7 +20,7 @@ public class LaserGame implements LaserGameInterface {
 		System.out.println("Shoot");
 		Pammo--;
 		
-		//Ascii for the pistol
+		//Ascii for the weapon
 		/*
 		System.out.println("_,`__________________________________________,,,`");
 		System.out.println("`      /  /  /  /      _  ___ ___ ___ ___ ___  ");
