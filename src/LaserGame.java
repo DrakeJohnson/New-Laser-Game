@@ -66,6 +66,7 @@ public class LaserGame implements LaserGameInterface {
 	public void Pblock() {//does a shield animation or message and returns positive if the player shielded this turn
 		System.out.println("Block");
 		
+<<<<<<< HEAD
 		JOptionPane.showMessageDialog(null, "|------------------------------------| \n"
 				+ "|                                                | \n"
 				+ "|                                                | \n"
@@ -76,6 +77,9 @@ public class LaserGame implements LaserGameInterface {
 				+ "            |---                ---| \n"
 				+ "                |---        ---| \n"
 				+ "                    |------| \n");
+=======
+		
+>>>>>>> 151404eb5ca052e9e19928571e1ecbd497dd1b12
 		
 		pblocked = true;
 	}
@@ -157,11 +161,13 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void win() {//win screen if the computer dies
-		JOptionPane.showMessageDialog( null, "You Win!!!!!!!" );
+		JOptionPane.showMessageDialog( null, "You Win!!!!!!!\n" +
+
+		"");		                                                           
 	}
 	
 	public void lose() {//lose screen if the player dies
-		JOptionPane.showMessageDialog( null, "You Lose :(" );
+		JOptionPane.showMessageDialog( null, "You Lose :(\n" );		                                                                                      
 	}
 	
 	public void bot() {//randomly chooses what the bot should do, won't shoot if it doesn't have ammo
@@ -192,7 +198,9 @@ public class LaserGame implements LaserGameInterface {
 	}
 
 	public void draw() {
-		JOptionPane.showMessageDialog( null, "Draw :/" );
+		JOptionPane.showMessageDialog( null, "Draw :/ \n" );              
+				                                      
+		                        
 	}
 
 	
