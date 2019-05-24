@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
+
+import javax.sound.sampled.AudioInputStream;
 import javax.swing.*;
+
+
 public class LaserGame implements LaserGameInterface {
 	boolean pshot, preloaded, pblocked, cshot, creloaded, cblocked;
 	int Pammo, Cammo;
@@ -72,19 +76,19 @@ public class LaserGame implements LaserGameInterface {
 	}
 	
 	public void Cshoot() {//does a shoot animation or message and returns positive if the computer shot this turn also checks if there is ammo and reduces it by 1 if it successfuly shoots
-		System.out.println("Computer shot");
+		System.out.println("AI shot");
 		Cammo--;
 		cshot = true;
 	}
 	
 	public void Creload() {//does a reload animation or message and returns positive if the computer reloaded this turn, also calls ammo and increases by 1
-		System.out.println("Computer reloaded");
+		System.out.println("AI reloaded");
 		Cammo++;
 		creloaded = true;
 	}
 	
 	public void Cblock() {//does a shield animation or message and returns positive if the computer shileded this turn
-		System.out.println("Computer blocked");
+		System.out.println("AI blocked");
 		cblocked = true;
 	}
 	
@@ -97,7 +101,7 @@ public class LaserGame implements LaserGameInterface {
 
 	public void menu() {//outputs nice prompts to let the player choose what they want to do each turn and guides the turns consecutively, calling all the correct methods in order
 		JOptionPane.showMessageDialog( null, "Welcome to Laser Battle!!!" );//a message box with this text appears welcoming the player
-		JOptionPane.showMessageDialog( null, "You and your opponent (the computer) has the choice to reload, shoot, or block every turn... choose wisely!" );//another message box to explain how the game works
+		JOptionPane.showMessageDialog( null, "You and your opponent (the AI) has the choice to reload, shoot, or block every turn... choose wisely!" );//another message box to explain how the game works
 		Scanner cin = new Scanner(System.in);
 		char choice = ' ';//player input to choose what action to do
 		while (Palive()==true&&Calive()==true) {//main menu of the game, continues until somebody dies
@@ -172,7 +176,7 @@ public class LaserGame implements LaserGameInterface {
 		}
 	
 	public void sound() {//plays a shooting sound that will be called when the player or computer shoots
-	
+		
 	}
 
 	public void draw() {
