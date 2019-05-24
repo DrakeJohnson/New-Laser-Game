@@ -38,7 +38,7 @@ public class LaserGame implements LaserGameInterface {
 		System.out.println("|  -    -- |");
 		System.out.println("------------");
 		*/
-		JOptionPane.showMessageDialog( null, "_,`__________________________________________,,,` \n"
+		JOptionPane.showMessageDialog(null, "_,`__________________________________________,,,` \n"
 				+ "`      /  /  /  /      _  ___ ___ ___ ___ ___   \n" 
 				+ " _ __ /  /  /  /  ____|___ ___ ___ ___ ___ __ \n"
 				+ "/ --  --------   |                                \n"
@@ -57,14 +57,26 @@ public class LaserGame implements LaserGameInterface {
 	public void Preload() {//does a reload animation or message and returns positive if the player reloaded this turn, also calls ammo and increases by 1
 		System.out.println("Reload");
 		
-		System.out.println("");
+		JOptionPane.showMessageDialog(null, "Reloaded!");
 		
 		Pammo++;
 		preloaded = true;
 	}
 	
-	public void Pblock() {//does a shield animation or message and returns positive if the player shileded this turn
+	public void Pblock() {//does a shield animation or message and returns positive if the player shielded this turn
 		System.out.println("Block");
+		
+		JOptionPane.showMessageDialog(null, "|------------------------------------| \n"
+				+ "|                                                | \n"
+				+ "|                                                | \n"
+				+ "|                                                | \n"
+				+ "|---                                        ---| \n"
+				+ "    |---                                ---| \n"
+				+ "        |---                        ---| \n"
+				+ "            |---                ---| \n"
+				+ "                |---        ---| \n"
+				+ "                    |------| \n");
+		
 		pblocked = true;
 	}
 	
@@ -87,7 +99,7 @@ public class LaserGame implements LaserGameInterface {
 		creloaded = true;
 	}
 	
-	public void Cblock() {//does a shield animation or message and returns positive if the computer shileded this turn
+	public void Cblock() {//does a shield animation or message and returns positive if the computer shielded this turn
 		System.out.println("AI blocked");
 		cblocked = true;
 	}
